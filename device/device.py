@@ -1,12 +1,15 @@
 import requests
+import os
 
-URL = "https://localhost://5001/telemetry"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+URL = "https://localhost:5001/telemetry"
 
 payload = {"temperature":27.8, "status":"OK"}
 
-DEVICE_CERT = "../certs/device.crt"
-DEVICE_KEY="../certs/device.key"
-ROOT_CA="../certs/rootCA.pem"
+DEVICE_CERT = os.path.join(BASE_DIR, "certs", "device.crt")
+DEVICE_KEY  = os.path.join(BASE_DIR, "certs", "device.key")
+ROOT_CA     = os.path.join(BASE_DIR, "certs", "rootCA.pem")
+
 
 def main():
     resp = requests.post(

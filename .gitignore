@@ -1,0 +1,5 @@
+.venv
+certs/*.key
+certs/*.pem
+*.srl
+certs
